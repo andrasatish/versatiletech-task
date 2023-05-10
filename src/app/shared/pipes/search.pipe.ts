@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-  transform(items: any, filter: any, defaultFilter: boolean): any {
+  transform(items: any, filter: any, defaultFilter?: boolean): any {
     if (!filter || !Array.isArray(items)) {
       return items;
     }
