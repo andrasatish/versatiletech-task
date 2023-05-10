@@ -1,0 +1,10 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<h2 *ngIf="error">{{ error }}</h2>
+<div id="search">
+    <app-search (modifiedContent)="getContent($event)"></app-search>
+</div>
+<div class="row clearfix">
+    <div class="col-md-6 float-left" *ngFor="let user of users | search: {name:searchTxt,email:searchTxt,website:searchTxt,username:searchTxt}">
+        <app-user [user]="user"></app-user>
+    </div>
+</div>

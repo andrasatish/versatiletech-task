@@ -1,0 +1,36 @@
+<h1 style="text-align: center">Deep Filter</h1>
+
+<input
+  type="”text”"
+  [(ngModel)]="searchDeepTerm"
+  name="searchDeepTerm"
+  placeholder="Search"
+/>
+<table class="”table-bordered”">
+  <tr>
+    <th>Title</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Date</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Postcode</th>
+  </tr>
+  <tr *ngFor="let x of users | deepFilter:searchDeepTerm">
+    <td>{{ x.name.title }}</td>
+    <td>{{ x.name.first }}</td>
+    <td>{{ x.name.last }}</td>
+    <td>{{ x.dob.date }}</td>
+    <td>{{ x.dob.age }}</td>
+    <td>{{ x.email }}</td>
+    <td>{{ x.location.street.name }} {{ x.location.street.number }}</td>
+    <td>{{ x.location.city }}</td>
+    <td>{{ x.location.state }}</td>
+    <td>{{ x.location.country }}</td>
+    <td>{{ x.location.postcode }}</td>
+  </tr>
+</table>

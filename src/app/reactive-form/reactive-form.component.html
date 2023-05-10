@@ -1,0 +1,115 @@
+<div class="container bg-light">
+  <div class="row">
+    <div class="col-md-6 mx-auto h-100">
+      <h1 class="text-center my-3">Reactive Form & validation</h1>
+      <form [formGroup]="registration" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="username"
+            class="form-control"
+            formControlName="username"
+            [ngClass]="un.errors && isFormSubmitted ? 'error-exists' : ''"
+          />
+          <span style="color: red" *ngIf="un.errors && isFormSubmitted">{{
+            usernameValidation()
+          }}</span>
+        </div>
+
+        <div formGroupName="passwords">
+          <div class="form-group">
+            <input
+              type="password"
+              placeholder="password"
+              class="form-control"
+              formControlName="password"
+              [ngClass]="ps?.errors && isFormSubmitted ? 'error-exists' : ''"
+            />
+            <span style="color: red" *ngIf="ps?.errors && isFormSubmitted">{{
+              passwordValidation()
+            }}</span>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              placeholder="confirm password"
+              class="form-control"
+              formControlName="confirmPassword"
+              [ngClass]="cfps?.errors && isFormSubmitted ? 'error-exists' : ''"
+            />
+            <span style="color: red" *ngIf="cfps?.errors && isFormSubmitted">{{
+              confirmPasswordValidation()
+            }}</span>
+          </div>
+        </div>
+
+        <div formArrayName="skills">
+          <div
+            *ngFor="
+              let skill of registration.get('skills').controls;
+              let i = index
+            "
+          >
+            <div
+              [formGroupName]="i"
+              class="d-flex justify-content-between mb-2"
+            >
+              <div class="form-group">
+                <input
+                  placeholder="Technology"
+                  formControlName="technology"
+                  class="form-control"
+                  [ngClass]="
+                    (skills.controls[i].controls['technology'].errors && isFormSubmitted) ? 'error-exists' : ''
+                  "
+                />
+                <span
+                  style="color: red"
+                  *ngIf="
+                  (skills.controls[i].controls['technology'].errors && isFormSubmitted) ? 'error-exists' : ''
+                  "
+                  >{{ technologyValidation(i) }}</span
+                >
+              </div>
+
+              <div class="form-group">
+                <input
+                placeholder="Level"
+                formControlName="level"
+                class="form-control" 
+                [ngClass]="
+                  (skills.controls[i].controls['level'].errors && isFormSubmitted) ? 'error-exists' : ''
+                "
+              />
+              <span
+              style="color: red"
+              *ngIf="
+              (skills.controls[i].controls['level'].errors && isFormSubmitted) ? 'error-exists' : ''
+              "
+              >{{ levelValidation(i) }}</span
+            >
+              </div>
+
+              <img
+                [src]="addIcon"
+                class="img-container"
+                (click)="addNewSkill()"
+              />
+
+              <img
+                [src]="deleteIcon"
+                class="img-container"
+                (click)="deleteExistingSkill(i)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

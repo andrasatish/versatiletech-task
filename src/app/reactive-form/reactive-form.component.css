@@ -1,0 +1,12 @@
+.error-exists{
+    border: 1px solid red;
+    outline: none;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+.img-container{
+    height: 25px;
+    cursor: pointer;
+    margin-top: 4px;
+}

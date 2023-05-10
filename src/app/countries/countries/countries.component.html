@@ -1,0 +1,49 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<div *ngIf="error">{{ error }}</div>
+<div id="search">
+  <app-search (modifiedContent)="getContent($event)"></app-search>
+</div>
+<div class="my-2">
+  <table
+    class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl"
+  >
+    <caption>
+      List of Countries
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Region</th>
+        <th scope="col">Subregion</th>
+        <th scope="col">Population</th>
+        <th scope="col">Flag</th>
+        <th scope="col">Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr
+        *ngFor="
+          let country of countries
+            | search
+              : {
+                  name:  searchTxt,                  
+                  capital: searchTxt,
+                  region: searchTxt,
+                  subregion: searchTxt,
+                  population: searchTxt
+                }
+        "
+      > -->
+      <tr *ngFor="let country of countries | deepFilter:searchTxt">
+        <td>{{ country.name.common }}</td>
+        <td>{{ country.capital }}</td>
+        <td>{{ country.region }}</td>
+        <td>{{ country.subregion }}</td>
+        <td>{{ country.population }}</td>
+        <td>{{ country.demonyms.eng.f }}</td>
+        <td><img src="{{ country.flags }}" class="img-style" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

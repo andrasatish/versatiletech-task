@@ -1,0 +1,12 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<h2 *ngIf="error" class="my-3">{{ error }}</h2>
+<div id="search">
+    <app-search (modifiedContent)="getContent($event)"></app-search>
+</div>
+<div class="row">
+    <div class="col-md-6 float-left clickstyles p-0 pl-1" 
+        (click)="selectedComment(comment)"
+        *ngFor="let comment of comments | search: {postId:searchTxt,name:searchTxt,email:searchTxt,body:searchTxt}">
+        <app-comment [comment]="comment"></app-comment>
+    </div>
+</div>

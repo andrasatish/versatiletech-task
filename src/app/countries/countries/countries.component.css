@@ -1,0 +1,13 @@
+.img-style{
+    width: 50px;
+    height: 20px;
+}
+.active{
+    color: indianred;
+}
+.inactive{
+    color: grey;
+}
+.fa-sort-up{
+    margin-top:7px!important;
+}

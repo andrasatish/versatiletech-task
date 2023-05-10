@@ -1,0 +1,13 @@
+.active{
+    background: turquoise;
+    color: #000!important;
+}
+.anc-link {
+    display: inline-block;
+    padding: 5px 25px;
+    text-decoration: none;
+    color: #fff;
+}
+.navbar{
+    padding: 0!important;
+}

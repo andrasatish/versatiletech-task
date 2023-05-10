@@ -1,0 +1,67 @@
+export const users = [
+  {
+    name: { title: "Monsieur", first: "Niklas", last: "Philippe" },
+    dob: { date: "1973–02–17T18:35:33.898Z", age: 47 },
+    gender: "male",
+    email: "niklas.philippe@example.com",
+    location: {
+      street: { number: 2179, name: "Avenue Joliot Curie" },
+      city: "Aulnay-sous-Bois",
+      state: "Hautes-Pyrénées",
+      country: "France",
+      postcode: 37752,
+    },
+  },
+  {
+    name: { title: "Mrs", first: "Nicoline", last: "Jensen" },
+    dob: { date: "1959–05–30T12:20:56.272Z", age: 61 },
+    gender: "female",
+    email: "nicoline.jensen@example.com",
+    location: {
+      street: { number: 544, name: "Poplar Dr" },
+      city: "Australian Capital Territory",
+      state: "Queensland",
+      country: "Australia",
+      postcode: 2703,
+    },
+  },
+  {
+    name: { title: "Miss", first: "Lilly", last: "Smith" },
+    dob: { date: "1995–04–11T08:12:02.912Z", age: 25 },
+    gender: "female",
+    email: "lily.smith@example.com",
+    location: {
+      street: { number: 8927, name: "Washington Ave" },
+      city: "Cairns",
+      state: "Australian Capital Territory",
+      country: "Australia",
+      postcode: 4313,
+    },
+  },
+  {
+    name: { title: "Mr", first: "Julio", last: "Ibanez" },
+    dob: { date: "1946–10–18T09:54:57.564Z", age: 74 },
+    gender: "male",
+    email: "julio.ibanez@example.com",
+    location: {
+      street: { number: 6283, name: "Calle de Atocha" },
+      city: "Oviedo",
+      state: "Canarias",
+      country: "Spain",
+      postcode: 94457,
+    },
+  },
+  {
+    name: { title: "Monsieur", first: "Horst", last: "Bernard" },
+    dob: { date: "1969–07–29T22:21:47.381Z", age: 51 },
+    gender: "male",
+    email: "horst.bernard@example.com",
+    location: {
+      street: { number: 1217, name: "Rue de Cuire" },
+      city: "Nîmes",
+      state: "Maine-et-Loire",
+      country: "France",
+      postcode: 27584,
+    },
+  },
+];

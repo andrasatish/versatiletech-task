@@ -1,0 +1,15 @@
+<div class="card my-3" style="width: 100%;">
+    <div class="card-header">
+        <div class="clearfix">
+            <p class="float-left"><strong>ID : </strong> {{user.id}}</p>
+            <p class="float-right"><strong>Name : </strong> {{user.name}}</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <p><strong>Username : </strong> {{user.username}}</p>
+        <p><strong>Email : </strong> {{user.email | emailHiding}}</p>
+        <p><strong>City : </strong> {{user.address.city}}</p>
+        <p><strong>Website : </strong> {{user.website}}</p>
+        <p><strong>Company : </strong> {{user.company.name}}</p>
+    </div>
+</div>
