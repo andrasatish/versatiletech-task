@@ -47,7 +47,7 @@
         <div formArrayName="skills">
           <div
             *ngFor="
-              let skill of registration.get('skills').controls;
+              let skill of registration.get('skills')?.controls;
               let i = index
             "
           >
@@ -61,13 +61,13 @@
                   formControlName="technology"
                   class="form-control"
                   [ngClass]="
-                    (skills.controls[i].controls['technology'].errors && isFormSubmitted) ? 'error-exists' : ''
+                    (skills.controls[i].get('technology').errors && isFormSubmitted) ? 'error-exists' : ''
                   "
                 />
                 <span
                   style="color: red"
                   *ngIf="
-                  (skills.controls[i].controls['technology'].errors && isFormSubmitted) ? 'error-exists' : ''
+                  (skills.controls[i].get('technology').errors && isFormSubmitted) ? 'error-exists' : ''
                   "
                   >{{ technologyValidation(i) }}</span
                 >
@@ -79,13 +79,13 @@
                 formControlName="level"
                 class="form-control" 
                 [ngClass]="
-                  (skills.controls[i].controls['level'].errors && isFormSubmitted) ? 'error-exists' : ''
+                  (skills.controls[i].get('level').errors && isFormSubmitted) ? 'error-exists' : ''
                 "
               />
               <span
               style="color: red"
               *ngIf="
-              (skills.controls[i].controls['level'].errors && isFormSubmitted) ? 'error-exists' : ''
+              (skills.controls[i].get('level').errors && isFormSubmitted) ? 'error-exists' : ''
               "
               >{{ levelValidation(i) }}</span
             >
