@@ -1,24 +1,76 @@
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-2">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="anc-link" [routerLink]="['/comments']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Comments</a>
-              </li>  
-            <li class="nav-item">
-              <a class="anc-link" [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="anc-link" [routerLink]="['/countries']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Countries</a>
-            </li>
-            <li class="nav-item">
-              <a class="anc-link" [routerLink]="['/deep-search']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Deep Users List</a>
-            </li>
-            <li class="nav-item">
-              <a class="anc-link" [routerLink]="['/reactive-form']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Reactive Form</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-2">
+    <div
+      class="anc-link"
+      style="cursor: pointer"
+      routerLinkActive="active"
+      (click)="toggleMenu()"
+    >
+      Menu
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="anc-link"
+            [routerLink]="['/comments']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Comments</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="anc-link"
+            [routerLink]="['/users']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Users</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="anc-link"
+            [routerLink]="['/countries']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Countries</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="anc-link"
+            [routerLink]="['/deep-search']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Deep Users List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="anc-link"
+            [routerLink]="['/reactive-form']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Reactive Form</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="menu-bar" *ngIf="toggleSideMenu">
+    <ul class="menu-list-container">
+      <li
+        *ngFor="let concept of concepts"
+        (click)="navigateToConcept(concept)"
+      >
+        {{ concept.displayName }}
+      </li>
+    </ul>
+  </div>
+  <div
+    [ngStyle]="toggleSideMenu ? { opacity: '0.5' } : ''"
+  >
     <router-outlet></router-outlet>
+  </div>
 </div>

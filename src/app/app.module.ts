@@ -11,12 +11,15 @@ import { MakeHttpInterceptor } from './app.interceptor';
 import { DeepFilterComponent } from './deep-filter/deep-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { AgGridBasicComponent } from './components/ag-grid-basic/ag-grid-basic.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     DeepFilterComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    AgGridBasicComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     UsersCommentsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   providers: [
     {
