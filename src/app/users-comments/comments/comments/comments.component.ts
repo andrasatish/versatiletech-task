@@ -1,15 +1,15 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { isIdentifier } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { UsersCommentsService } from '../users-comments.service';
+import { UsersCommentsService } from '../../users-comments.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-comments',
-  templateUrl:'./comments.component.css',
+  selector: 'ver-comments',
+  templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
+
   public comments: any;
   public searchTxt: string;
   public error:any;
